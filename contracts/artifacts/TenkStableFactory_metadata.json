@@ -1,0 +1,513 @@
+{
+	"compiler": {
+		"version": "0.5.16+commit.9c3226ce"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "feeTo_",
+						"type": "address"
+					}
+				],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "prevOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "FeePercentOwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "prevFeeTo",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newFeeTo",
+						"type": "address"
+					}
+				],
+				"name": "FeeToTransferred",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "prevOwnerFeeShare",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "ownerFeeShare",
+						"type": "uint256"
+					}
+				],
+				"name": "OwnerFeeShareUpdated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "prevOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "token0",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "token1",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "pair",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "length",
+						"type": "uint256"
+					}
+				],
+				"name": "PairCreated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "referrer",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "prevReferrerFeeShare",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "referrerFeeShare",
+						"type": "uint256"
+					}
+				],
+				"name": "ReferrerFeeShareUpdated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "prevOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "SetStableOwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "allPairs",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "allPairsLength",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "tokenA",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "tokenB",
+						"type": "address"
+					}
+				],
+				"name": "createPair",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "pair",
+						"type": "address"
+					}
+				],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "feeInfo",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "_ownerFeeShare",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_feeTo",
+						"type": "address"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "feePercentOwner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "feeTo",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "getPair",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "ownerFeeShare",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "referrersFeeShare",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_feeTo",
+						"type": "address"
+					}
+				],
+				"name": "setFeeTo",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_owner",
+						"type": "address"
+					}
+				],
+				"name": "setOwner",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_setStableOwner",
+						"type": "address"
+					}
+				],
+				"name": "setSetStableOwner",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "setStableOwner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"methods": {}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/TenkStableFactory.sol": "TenkStableFactory"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/TenkERC20.sol": {
+			"keccak256": "0x564cc1b68259ffaafc878219f81dd989ab6b7527a44f93b2a98f17f5fdac4aa9",
+			"urls": [
+				"bzz-raw://2f7ecc32eae641789aa895deea12f5dee0d23591126ed737abd5a3793c8c374e",
+				"dweb:/ipfs/QmWEUR7wKh8qL7oz6E1xycTEK4piVbUuzv6vBFB7SGkxVM"
+			]
+		},
+		"contracts/TenkStableFactory.sol": {
+			"keccak256": "0xb19605a79d38f7ca1756ca5d85c153f18962981edbeaf928c2f92455105eb7ad",
+			"urls": [
+				"bzz-raw://c294c01188ce9f54aee893997d7266e2d20a6a3e888f57d087367d3f6dad6d70",
+				"dweb:/ipfs/QmUsJMVxhArYBuJF9RuWq9ozYwyetA61q2EXhRA2o4wbrB"
+			]
+		},
+		"contracts/TenkStablePair.sol": {
+			"keccak256": "0xec4561c5dea44f57bba433fc6056e26b161c39879ae5473e83b9802417110ca8",
+			"urls": [
+				"bzz-raw://b95b660a05137ad449e0852b54befd70c459a5cac8548ed8eea02e20ade6d4c7",
+				"dweb:/ipfs/QmXvtA43BHgBMSKFGQ3qjDPEmKmBFehfCJB4XuwMnessqf"
+			]
+		},
+		"interfaces/I10kERC20.sol": {
+			"keccak256": "0xa8c5a9bfdb6371d4c7f37e4958b410ae7ee7978965162843a07865c2d1005456",
+			"urls": [
+				"bzz-raw://34bc30986cbfe78549b1d3b11a13372d7f5667627966a72bc08065797515c608",
+				"dweb:/ipfs/QmeP39jGMV8JSHkz4VnC1xPjC8Pc68wJgBnuJbBBfBMVEY"
+			]
+		},
+		"interfaces/I10kStableCallee.sol": {
+			"keccak256": "0x78032c32f37205046ccec3927429ac48671753bb6b2e726d9ef2ad319ba92010",
+			"urls": [
+				"bzz-raw://0a99e5afd3034b4c8acde30aeb212e8f42481e7ef457cff7bb6520154f3722ad",
+				"dweb:/ipfs/QmPyJJqamwLHL6FMFQYgoM6iL6wdPEAyfYNMr36y7dqvj8"
+			]
+		},
+		"interfaces/I10kStableFactory.sol": {
+			"keccak256": "0x1600abf0882d18a29d5aa4d74644f57368dbef7799cacfbd94b82f337563862c",
+			"urls": [
+				"bzz-raw://413a251d65f1255084c77849727a1b49b0635dafebef23961cea71f3a6f53421",
+				"dweb:/ipfs/QmaE5Ki2KnFHfGLg8RXSCbFaca8L5KRetvepSmwfap5SFF"
+			]
+		},
+		"interfaces/I10kStablePair.sol": {
+			"keccak256": "0xa66611f5fd9d26c03ec7fb00941af91c5e5ba01dea24fe6a5f223acbbe6ce245",
+			"urls": [
+				"bzz-raw://5a9c82d7d2c9cd957bd727679f0d73b9871a8d6ea5aa25ec10e293e4531774ba",
+				"dweb:/ipfs/QmPG57Ph8k3tq8cmeFe6GW2wBcmpzdr4BFQM6ZF9vnVW5z"
+			]
+		},
+		"interfaces/IERC20.sol": {
+			"keccak256": "0x026fb4c4604e2f6777f72ade61eb8181e39ecaea75623738b5b4db133b96baf9",
+			"urls": [
+				"bzz-raw://c583da75cb39bf608b3397ba4b7aded1c70560983087e4ad7373c421b30c9eff",
+				"dweb:/ipfs/QmXfJu9UyHPvRpJe6wp4aL1skJQ9GrxxriWivaJsriU6YM"
+			]
+		},
+		"libraries/Math.sol": {
+			"keccak256": "0xd18b6121fa8808fff1d095af718276cf840b037165e5ba3bc91516ca6403e776",
+			"urls": [
+				"bzz-raw://fb213ae85748ccd097ecefb8fab810ebd2699ddcaa37598d6252c34e7397a51c",
+				"dweb:/ipfs/QmYzWsfhe9kDedaPro9cxwaihUdSSTcWQyCH9WKK8XZWi7"
+			]
+		},
+		"libraries/SafeMath.sol": {
+			"keccak256": "0x187b45f92784b0471f1007f6fcfa33f97d92c100c3edc7f9b86c2c35a56b6e5d",
+			"urls": [
+				"bzz-raw://c05bbc97ca818b0657dac8786ed37e0c77537f4c6ec4b7c25940a3b1fcb7ca64",
+				"dweb:/ipfs/QmfSvmTfitBonGZ14AVUa794iMNzmfKHLUNbxSekFSvPLU"
+			]
+		}
+	},
+	"version": 1
+}
